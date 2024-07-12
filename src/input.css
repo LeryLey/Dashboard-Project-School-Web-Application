@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active{
+    @apply translate-y-2 opacity-100 pointer-events-auto;
+}
