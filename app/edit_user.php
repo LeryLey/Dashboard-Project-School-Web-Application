@@ -13,15 +13,33 @@
         $phone = filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS);
         $role_id = $_POST["role_id"];                        // check if empty fields
         $dec = filter_input(INPUT_POST, "dec", FILTER_SANITIZE_SPECIAL_CHARS);
+           // upload file image
+           $file_name = $_FILES['image']['name'];
+           $tempName = $_FILES['image']['tmp_name'];
+           $folder = '../img/'.$file_name;
+
         if(empty($username) || empty($email)){
             echo alert('All fields are required');
             return;
         }else{
             // update data
-            $sql = "UPDATE users SET username =?, email =?, phone =?, role_id =? WHERE id = $id";
+            $sql = "UPDATE users SET username =?, email =?, phone =?, role_id =?, photo=? WHERE id = $id";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssii", $username, $email,  $phone, $role_id);
+            $stmt->bind_param("sssis", $username, $email,  $phone, $role_id, $file_name);
+         
+            // check file size
+            if($_FILES['image']['size'] > 3000000){
+                alert("File size is too large! Please choose file size less than 3MB");
+            }
+
+            //allow file extension
+            $allow_type = array('jpg', 'jpeg', 'png');
+            $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+            if(!in_array($ext, $allow_type)){
+                alert("Invalid file type! Please choose file is (jpg, png or jpeg)");
+            }
             if($stmt->execute()){
+                move_uploaded_file($tempName, $folder);
                 header('location: ../app/user.php');
             }else{
                 die(mysqli_connect_error());
