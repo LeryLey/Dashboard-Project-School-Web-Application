@@ -8,8 +8,15 @@
                 <h1 class="text-gray-200 text-xl capitalize">
                     <?php echo isset($_SESSION['USERNAME']) ? $_SESSION['USERNAME']  : ''?>
                 </h1>
-                <p class="text-gray-500 text-sm">
-                    <?php echo isset($_SESSION['ROLE_ID'])? $_SESSION['ROLE_ID']  : ''?>
+                <p class="text-gray-500 text-sm">   
+                    <?php 
+                        if($_SESSION['ROLE_ID'] == 1){ 
+                            echo 'Admin';
+                        }elseif($_SESSION['ROLE_ID'] == 2){
+                            echo 'User'; 
+                        }
+                    ?>
+
                 </p>
             </div>
         </div>

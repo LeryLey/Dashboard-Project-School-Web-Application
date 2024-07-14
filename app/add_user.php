@@ -60,7 +60,6 @@
                                 move_uploaded_file($tempName, $folder);
                                 if($stmt->execute()){
                                     alert("Added user successfully.");
-                                    
                                     // reset fields
                                     $username = "";
                                     $email = "";

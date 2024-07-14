@@ -79,7 +79,8 @@
                             //check file extension
                             if(!in_array($ext, $allow_type)){
                                 alert("Invalid file type! Please choose file is (jpg, png or jpeg)");
-                            }else{
+                            }
+                            else{
                                 // move file to folder
                                 move_uploaded_file($tempName, $folder);
                                 if($stmt->execute()){
