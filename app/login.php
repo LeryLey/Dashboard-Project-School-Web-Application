@@ -28,7 +28,7 @@
                             placeholder="Email"
                             id="email"
                             name="email"
-                            type="text"
+                            type="email"
                         />
                         <ion-icon name="person" class="absolute top-2 right-3 text-gray-400"></ion-icon>
                     </div>

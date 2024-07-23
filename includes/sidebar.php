@@ -43,13 +43,17 @@
             <ion-icon name="pie-chart" class="text-green-500 bg-white/10 rounded-full p-2"></ion-icon>
             <span id="linkName" class="text-gray-300">Chart</span>
         </a>
-        <a href="employees.php" class="flex items-center gap-2 text-base hover:bg-black/70 px-2 py-1 duration-300 rounded-r-full">
-            <ion-icon name="person" class="text-orange-500 bg-white/10 rounded-full p-2"></ion-icon>
-            <span id="linkName" class="text-gray-300">Employee</span>
+        <a href="course.php" class="flex items-center gap-2 text-base hover:bg-black/70 px-2 py-1 duration-300 rounded-r-full">
+            <ion-icon name="school" class="text-orange-500 bg-white/10 rounded-full p-2"></ion-icon>
+            <span id="linkName"  class="text-gray-300">Course</span>
         </a>
         <a href="user.php" class="flex items-center gap-2 text-base hover:bg-black/70 px-2 py-1 duration-300 rounded-r-full">
             <ion-icon name="shield-checkmark" class="text-blue-500 bg-white/10 rounded-full p-2"></ion-icon>
-            <span id="linkName"  class="text-gray-300">Mange User</span>
+            <span id="linkName"  class="text-gray-300">User Manage</span>
+        </a>
+        <a href="feature.php" class="flex items-center gap-2 text-base hover:bg-black/70 px-2 py-1 duration-300 rounded-r-full">
+            <ion-icon name="shield-checkmark" class="text-blue-500 bg-white/10 rounded-full p-2"></ion-icon>
+            <span id="linkName"  class="text-gray-300">Feature</span>
         </a>
     </ul>
 </div>

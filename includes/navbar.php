@@ -21,8 +21,8 @@
                 <ion-icon name="mail"></ion-icon>
             </button>
             <!-- notification  -->
-            <div id="open-notification" type="button" class="relative text-white text-xl hover:bg-white/10 focus:bg-white/10 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
-                <div class="relative">
+            <div id="open-notification" type="button" class="relative text-white text-xl hover:bg-white/10 focus:bg-white/10 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer group">
+                <div class="relative ">
                     <span class="absolute -right-2 -top-1 flex h-3 w-3 ">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>

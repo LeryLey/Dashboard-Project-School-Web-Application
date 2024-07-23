@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Courses</title>
     <?php  include("../includes/head.php") ?>
 </head>  
 <body class="bg-primary min-h-screen">
@@ -18,12 +18,11 @@
                 <div class="bg-primary rounded-md h-full p-4 overflow-auto">
                     <div  class="flex items-center justify-between ">
                         <div>
-                            <h1 class="text-2xl text-blue-500">Employees List</h1>
+                            <h1 class="text-2xl text-blue-500">Courses</h1>
                             <p class="text-gray-500">Detail below.</p>
                         </div>
                         <div class="space-x-2 flex">
-                            <a href="#" class="border border-green-500 text-green-500 hover:text-white bg-transparent hover:bg-green-500 duration-300 font-medium uppercase text-sm text-medium py-2 px-4 rounded-md ">View All</a>
-                            <a href="add.php" class="border border-blue-500 text-gray-200 hover:text-blue-500 bg-blue-500 hover:bg-transparent duration-300 font-medium uppercase text-sm text-medium py-2 px-4 rounded-md flex items-center gap-1 "><ion-icon name="add-outline" class="text-xl"></ion-icon>Add Employee</a>
+                            <a href="add_course.php" class="border border-blue-500 hover:text-gray-200 text-blue-500 hover:bg-blue-500 bg-transparent duration-300 font-medium uppercase text-sm text-medium py-2 px-4 rounded-md flex items-center gap-1 "><ion-icon name="add-outline" class="text-xl"></ion-icon>Add Course</a>
                         
                         </div>
                     </div>
@@ -35,25 +34,20 @@
                                         No
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-left tracking-wider">
-                                        Employee
+                                        Code
                                     </th>
                                     <th scope="col" class="px-6 py-4 text-left tracking-wider">
-                                        Gender
+                                        Name
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left tracking-wider">
-                                        Date of Birth
+                                        Credit
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left tracking-wider">
-                                        Phone
+                                        Department
                                     </th>
+                                    
                                     <th scope="col" class="px-6 py-3 text-left tracking-wider">
-                                        Email
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left tracking-wider">
-                                        Position
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left tracking-wider">
-                                        Address
+                                        Description
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left tracking-wider">
                                         Action
@@ -62,27 +56,32 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "SELECT * FROM employees";
+                                    $sql = "SELECT courses.course_id, 
+                                    courses.course_code, 
+                                    courses.course_name, 
+                                    courses.course_dec, 
+                                    courses.dept_id, 
+                                    courses.course_credit, 
+                                    departments.dept_name 
+                             FROM courses 
+                             LEFT JOIN departments ON courses.dept_id = departments.dept_id";
                                     $result = mysqli_query($conn, $sql);
                                     while($row = $result->fetch_assoc()){
                                         echo "
                                             <tr class=''>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 '>{$row['id']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['fname']} {$row['lname']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['gender']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['dob']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['phone']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 lowercase  '>{$row['email']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['position']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['address']}</td>
+                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 '>{$row['course_id']}</td>
+                                   
+                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['course_code']}</td>
+                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['course_name']}</td>
+                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['course_credit']}</td>
+                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize  '>{$row['dept_name']}</td>
+                                                <td class=' border-b-[1px] border-gray-800 zh-12 pl-6 capitalize '>{$row['course_dec']}</td>
                                                 <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>
-                                                    <a href='view.php?id={$row['id']}' class='text-green-600 hover:text-green-900 text-xl'>
-                                                        <ion-icon name='eye-outline'></ion-icon>
-                                                    </a>
-                                                    <a href='edit.php?id={$row['id']}' class='text-blue-600 hover:text-blue-900 text-xl'>
+                                                    
+                                                    <a href='edit_course.php?id={$row['course_id']}' class='text-blue-600 hover:text-blue-900 text-xl'>
                                                         <ion-icon name='create-outline'></ion-icon>
                                                     </a>
-                                                    <a href='delete.php?id={$row['id']}' 
+                                                    <a href='delete_course.php?id={$row['course_id']}' 
                                                     class='text-red-600 hover:text-red-900 text-xl'
                                                     onclick='return confirm(\"Are you sure you want to delete this employee?\");'>
                                                         <ion-icon name='trash-outline'></ion-icon>
@@ -101,5 +100,6 @@
         </div>
     </div>
     <?php  include("../includes/footer.php")?>
+
 </body>
 </html>

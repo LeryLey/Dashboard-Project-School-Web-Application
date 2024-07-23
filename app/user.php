@@ -42,9 +42,7 @@
                                     <th scope="col" class="px-6 py-3 text-left tracking-wider">
                                         Email
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left tracking-wider">
-                                        Phone
-                                    </th>
+                              
                                     <th scope="col" class="px-6 py-3 text-left tracking-wider">
                                         Role ID 
                                     </th>
@@ -70,7 +68,7 @@
                                                 </td>
                                                 <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>{$row['username']}</td>
                                                 <td class=' border-b-[1px] border-gray-800 h-12 pl-6 lowercase '>{$row['email']}</td>
-                                                <td class=' border-b-[1px] border-gray-800 h-12 pl-6 lowercase '>{$row['phone']}</td>
+                                               
                                                 <td class=' border-b-[1px] border-gray-800 zh-12 pl-6 capitalize '>{$row['role_name']}</td>
                                                 <td class=' border-b-[1px] border-gray-800 h-12 pl-6 lowercase  '>{$row['created_at']}</td>
                                                 <td class=' border-b-[1px] border-gray-800 h-12 pl-6 capitalize '>
